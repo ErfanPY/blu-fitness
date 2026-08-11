@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بلو فیتنس - مرکز تخصصی مربیگری و تجهیزات ورزشی</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-dark: #0B132B;
+            --royal-blue: #0066FF;
+            --white: #FFFFFF;
+            --blue-gray: #94A3B8;
+            --cyan-accent: #00C4FF;
+        }
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--navy-dark);
+            color: var(--white);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 0;
+        }
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            color: var(--white);
+        }
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.5rem; margin-bottom: 40px; text-align: center; }
+        h3 { font-size: 1.8rem; }
+        p { color: var(--blue-gray); }
+        a {
+            color: var(--royal-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover { color: var(--cyan-accent); }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: var(--royal-blue);
+            color: var(--white);
+            border: 2px solid var(--royal-blue);
+        }
+        .btn-primary:hover {
+            background-color: var(--cyan-accent);
+            border-color: var(--cyan-accent);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--navy-dark);
+        }
+
+        /* --- Header --- */
+        .header {
+            background-color: var(--navy-dark);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+        }
+        .logo { font-size: 1.8rem; font-weight: 900; }
+        .logo .icon { color: var(--royal-blue); }
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { font-weight: 700; }
+        .header-actions { display: flex; align-items: center; gap: 20px; }
+        .cart-icon { width: 28px; height: 28px; }
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; }
+
+        /* --- Hero Section --- */
+        .hero {
+            background-image: linear-gradient(rgba(11, 19, 43, 0.8), rgba(11, 19, 43, 1)), url('https://via.placeholder.com/1920x1080.png/0B132B/FFFFFF?text=Blu+Fitness+Hero');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 120px 0;
+        }
+        .hero .badge {
+            display: inline-block;
+            background-color: rgba(0, 102, 255, 0.2);
+            color: var(--cyan-accent);
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            border: 1px solid var(--royal-blue);
+        }
+        .hero h1 { margin-bottom: 20px; }
+        .hero p { max-width: 600px; margin: 0 auto 30px auto; font-size: 1.1rem; }
+        .hero .cta-buttons { display: flex; justify-content: center; gap: 20px; }
+
+        /* --- Grid Sections --- */
+        .grid-4, .grid-3 {
+            display: grid;
+            gap: 30px;
+        }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .feature-card, .service-card, .product-card {
+            background-color: #1C2541;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover, .service-card:hover, .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.2);
+        }
+        .feature-card .icon { font-size: 3rem; color: var(--royal-blue); margin-bottom: 15px; }
+
+        /* --- Two Column Sections --- */
+        .two-col-layout {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .two-col-layout > div { flex: 1; }
+        .two-col-layout .image-col img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        /* --- Testimonials --- */
+        #testimonials .testimonial-slider { display: flex; gap: 30px; }
+        .testimonial-card { flex: 1; background-color: #1C2541; padding: 30px; border-radius: 12px; border-left: 5px solid var(--royal-blue); }
+        .testimonial-card .author { font-weight: 700; color: var(--blue-gray); margin-top: 15px; }
+
+        /* --- Location & Contact --- */
+        #contact .two-col-layout > div {
+            background-color: #1C2541;
+            padding: 40px;
+            border-radius: 12px;
+        }
+        #contact h3 { margin-top: 0; }
+        #contact ul { list-style: none; padding: 0; }
+        #contact ul li { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .map-container {
+            width: 100%;
+            height: 200px;
+            background-color: var(--blue-gray);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy-dark);
+            margin-top: 20px;
+        }
+        #contact .action-card .btn {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            border-top: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        /* --- Floating WhatsApp --- */
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 100;
+        }
+        .whatsapp-fab svg { width: 32px; height: 32px; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .two-col-layout { flex-direction: column; }
+            .header {
+                padding: 15px 3%;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--navy-dark);
+                padding: 20px 0;
+                border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a { padding: 10px 5%; width: 100%; text-align: center; }
+            .mobile-menu-btn { display: block; }
+            .header-actions .btn { display: none; } /* Hide button on smaller screens */
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .container { padding: 60px 0; }
+            .grid-3, #testimonials .testimonial-slider { grid-template-columns: 1fr; flex-direction: column; }
+        }
+         @media (max-width: 576px) {
+            .grid-4 { grid-template-columns: 1fr; }
+            .hero .cta-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">بلو <span class="icon">فیتنس</span></div>
+        <nav class="nav-links" id="main-nav">
+            <a href="#home">صفحه اصلی</a>
+            <a href="#plans">برنامه ورزشی</a>
+            <a href="#gear">اکسسوری ورزشی</a>
+            <a href="#about">درباره ما</a>
+            <a href="#contact">تماس و آدرس</a>
+        </nav>
+        <div class="header-actions">
+            <!-- Shopping cart icon -->
+            <svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c.51 0 .962-.328 1.093-.828l2.558-9.086a.625.625 0 0 0-.11- P.617l-1.928-2.571A.625.625 0 0 0 16.136 3H5.136a.625.625 0 0 0-.583.437l-1.5 6.002M7.5 14.25 6.375 5.502M17.25 14.25l-1.125-8.748" />
+            </svg>
+            <a href="https://wa.me/989125412378" target="_blank" class="btn btn-primary">ارتباط مستقیم در واتساپ</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobile-menu-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,88H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>
+        </button>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <span class="badge">مرکز تخصصی مربیگری و تجهیزات ورزشی</span>
+                <h1>بلو فیتنس؛ ساختن بدنی قدرتمند و ایده‌آل</h1>
+                <p>دریافت برنامه‌های اختصاصی تمرین و تغذیه زیر نظر مربیان مجرب + عرضه آنلاین بهترین تجهیزات و اکسسوری‌های بدنسازی</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/989125412378" target="_blank" class="btn btn-primary">شروع مشاوره در واتساپ</a>
+                    <a href="#gear" class="btn btn-secondary">مشاهده اکسسوری‌ها</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="value-props" class="container">
+            <div class="grid-4">
+                <div class="feature-card">
+                    <div class="icon">📞</div>
+                    <h3>پشتیبانی مستقیم</h3>
+                    <p>پاسخگویی سریع و مشاوره مستقیم در واتساپ از طریق شماره ۰۹۱۲۵۴۱۲۳۷۸</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🏋️</div>
+                    <h3>برنامه کاملاً اختصاصی</h3>
+                    <p>طراحی برنامه بر اساس آنالیز دقیق فرم بدنی، اهداف و سبک زندگی شما</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🛍️</div>
+                    <h3>خرید حضوری و آنلاین</h3>
+                    <p>امکان ثبت سفارش آنلاین و مراجعه حضوری به دفتر بازار بزرگ تهران</p>
+                </div>
+                 <div class="feature-card">
+                    <div class="icon">🛡️</div>
+                    <h3>ضمانت کیفیت کالا</h3>
+                    <p>بالاترین کیفیت در لوازم و اکسسوری‌های ورزشی وارداتی با ضمانت اصالت</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="plans" class="container">
+            <div class="two-col-layout">
+                <div class="text-col">
+                    <span class="badge" style="background-color: transparent; border: 1px solid var(--royal-blue);">برنامه تحول ۳۰ روزه</span>
+                    <h3>دریافت برنامه تخصصی تمرین و تغذیه</h3>
+                    <p>تیم بلو فیتنس با آنالیز دقیق هدف شما (چربی‌سوزی، عضله‌سازی یا تناسب اندام)، بهترین برنامه را همراه با پشتیبانی آنلاین ارائه می‌دهد.</p>
+                    <a href="https://wa.me/989125412378" target="_blank" class="btn btn-primary">درخواست تنظیم برنامه</a>
+                </div>
+                <div class="image-col">
+                    <img src="https://via.placeholder.com/600x400.png/1C2541/FFFFFF?text=Coaching+Image" alt="مربی در حال آموزش">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="container">
+             <div class="two-col-layout">
+                <div class="text-col">
+                    <h2>درباره بلو فیتنس</h2>
+                    <blockquote>
+                        <p style="font-size: 1.2rem; border-right: 3px solid var(--royal-blue); padding-right: 20px; color: var(--white);">
+                        "بلو فیتنس با هدف ارائه مشاوره‌های علمی ورزشی و تامین بهترین تجهیزات تمرینی برای ورزشکاران حرفه‌ای و مبتدی فعالیت می‌کند."
+                        </p>
+                    </blockquote>
+                </div>
+                <div id="testimonials">
+                    <div class="testimonial-slider">
+                        <div class="testimonial-card">
+                            <p>"با برنامه‌های اختصاصی بلو فیتنس در ۳ ماه به وزن ایده‌آلم رسیدم. پشتیبانی واتساپ فوق‌العاده بود."</p>
+                            <div class="author">— رضایت مشتری</div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p>"کیفیت کش‌های مقاومت و دستکش‌های بدنسازی عالی بود، ارسال هم سریع انجام شد."</p>
+                            <div class="author">— علی از تهران</div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <section id="services" class="container">
+            <h2>خدمات اصلی ما</h2>
+            <div class="grid-3">
+                <div class="service-card">
+                    <h3>کاردیو و چربی‌سوزی</h3>
+                    <p>برنامه‌های تخصصی کاهش وزن سریع و اصولی برای رسیدن به تناسب اندام.</p>
+                </div>
+                <div class="service-card">
+                    <h3>مربیگری و تمرین اختصاصی</h3>
+                    <p>هدایت قدم به قدم برای رسیدن به فرم بدنی هدف با مربیان حرفه‌ای.</p>
+                </div>
+                <div class="service-card">
+                    <h3>تجهیزات و ملزومات تمرین</h3>
+                    <p>اکسسوری‌های کاربردی برای تمرین در خانه و باشگاه با بهترین کیفیت.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gear" class="container">
+            <h2>تجهیزات ورزشی</h2>
+            <div class="grid-4">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200.png/0B132B/FFFFFF?text=Resistance+Band" alt="کش مینی لوپ" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+                    <h4>کش مینی بوتی و مقاومت پارچه‌ای</h4>
+                    <p>قیمت: تماس بگیرید</p>
+                    <a href="https://wa.me/989125412378" target="_blank" class="btn btn-primary">ثبت سفارش در واتساپ</a>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200.png/0B132B/FFFFFF?text=Gym+Shaker" alt="شیکر ورزشی" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+                    <h4>شیکر تخصصی پروتئین</h4>
+                    <p>قیمت: تماس بگیرید</p>
+                    <a href="https://wa.me/989125412378" target="_blank" class="btn btn-primary">ثبت سفارش در واتساپ</a>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200.png/0B132B/FFFFFF?text=Gym+Gloves" alt="دستکش بدنسازی" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+                    <h4>دستکش و مچ‌بند بدنسازی</h4>
+                    <p>قیمت: تماس بگیرید</p>
+                    <a href="https://wa.me/989125412378" target="_blank" class="btn btn-primary">ثبت سفارش در واتساپ</a>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200.png/0B132B/FFFFFF?text=Yoga+Mat" alt="مت یوگا" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+                    <h4>مت یوگا و زیرانداز ضخیم</h4>
+                    <p>قیمت: تماس بگیرید</p>
+                    <a href="https://wa.me/989125412378" target="_blank" class="btn btn-primary">ثبت سفارش در واتساپ</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <h2>پایگاه حضوری و تماس</h2>
+            <div class="two-col-layout">
+                <div>
+                    <h3>دفتر مرکزی و فروشگاه</h3>
+                    <ul>
+                        <li><strong>آدرس:</strong> بازار بزرگ تهران، پامنار، انتهای کوچه مروی، پاساژ موزم، پلاک ۳۰۵</li>
+                        <li><strong>تماس:</strong> ۰۹۱۲۵۴۱۲۳۷۸</li>
+                        <li><strong>واتساپ:</strong> ۹۸۹۱۲۵۴۱۲۳۷۸+</li>
+                        <li><strong>ساعات کاری:</strong> شنبه تا چهارشنبه ۹ الی ۱۸ | پنجشنبه‌ها ۹ الی ۱۴</li>
+                    </ul>
+                    <div class="map-container">
+                        نقشه مکان فروشگاه
+                    </div>
+                </div>
+                <div class="action-card">
+                    <h3>ارتباط سریع</h3>
+                    <p>برای تماس تلفنی یا ارسال پیام در واتساپ از دکمه‌های زیر استفاده کنید.</p>
+                    <a href="tel:09125412378" class="btn btn-secondary">تماس تلفنی مستقیم</a>
+                    <a href="https://wa.me/989125412378" target="_blank" class="btn btn-primary">ارسال پیام در واتساپ</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>تمامی حقوق برای بلو فیتنس (blu-fitness.ir) محفوظ است.</p>
+    </footer>
+
+    <a href="https://wa.me/989125412378" target="_blank" class="whatsapp-fab" aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.8 0-67.3-8.8-95.2-24.8l-6.7-4-70.7 18.5 18.9-68.7-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path>
+        </svg>
+    </a>
+
+    <script>
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            document.getElementById('main-nav').classList.toggle('active');
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                if(document.getElementById('main-nav').classList.contains('active')){
+                    document.getElementById('main-nav').classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

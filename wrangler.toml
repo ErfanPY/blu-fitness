@@ -2,5 +2,11 @@ name = "blu-fitness"
 compatibility_date = "2024-03-20"
 account_id = "6b1352237fbb840117f36c73d82e7de6"
 
+routes = [
+  { pattern = "blu-fitness.boostsho.ir", custom_domain = true },
+  { pattern = "blu-fitness.ir", custom_domain = true },
+  { pattern = "www.blu-fitness.ir", custom_domain = true }
+]
+
 [assets]
 directory = "./"

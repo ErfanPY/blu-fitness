@@ -1,7 +1,6 @@
 name = "blu-fitness"
-main = "index.html"
 compatibility_date = "2024-03-20"
 account_id = "363ddf9846a01d1956a46bad97428cd3"
 
-[site]
-bucket = "./"
+[assets]
+directory = "./"
